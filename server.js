@@ -3,8 +3,17 @@
 	//Defining Libs
 	var app = require('express')();
 	var http = require('http').Server(app);
-	var io = require('socket.io')(http);
-
+	var server = require('http').createServer();
+	var io = require('socket.io')(server);
+	io.on('connection', function(socket){
+	  socket.on('event', function(data){
+	  	console.log("Event Occured");
+	  });
+	  socket.on('disconnect', function(){
+	  	console.log("Disconnected");
+	  });
+	});
+	server.listen(1330);
 	app.get('/', function(req, res){
 	
 	  //send the index.html file for all requests
@@ -27,9 +36,9 @@
 	  */
 	  var msg = Math.random();
 	  io.emit('message', msg);
-	  console.log (msg);
+	  
 	
-	}, 1000);
+	}, 5000);
 	//Defining Libs
 	var mysql      = require('mysql');
 	
