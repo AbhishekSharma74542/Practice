@@ -1,8 +1,6 @@
 	//127.0.0.1/8 Local Host 172.31.57.218
 	console.log("We got Connected Let's Start");
 	//Defining Libs
-	var app = require('express')();
-	var http = require('http').Server(app);
 	var server = require('http').createServer();
 	var io = require('socket.io')(server);
 	io.on('connection', function(socket){
@@ -21,11 +19,6 @@
 	
 	});
 	
-	http.listen(1330, function(){
-	
-	  console.log('listening on *:1330');
-	
-	});
 	
 	//for testing, we're just going to send data to the client every second
 	setInterval( function() {
