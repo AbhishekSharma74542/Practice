@@ -27,5 +27,7 @@
 	});
 
   	//Setting up Socket connection
-	io.on('connection', function(){ /* … */ });
+	io.on('connection', function(){ 
+		console.log("Congrats you have connected the Device")
+	});
 	server.listen(1339);
