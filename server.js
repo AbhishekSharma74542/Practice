@@ -17,11 +17,7 @@
 	});
 	server.listen(1330);
 	var http = require('http').Server(app);
-	http.listen(1330, function(){
-
-          console.log('listening on *:1330');
-
-        });
+	
 	app.get('/', function(req, res){
 	
 	  //send the index.html file for all requests
