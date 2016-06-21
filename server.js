@@ -5,7 +5,7 @@
 	var server = require('http').createServer();
 	var io = require('socket.io')(server);
 	io.on('connection', function(socket){
-	  socket.on('event', function(data){
+	  socket.on('data', function(data){
 	  	console.log("Event Occured");
 	  	console.log("Data"+data);
 	  	
