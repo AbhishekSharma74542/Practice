@@ -1,15 +1,13 @@
 	//127.0.0.1/8 Local Host 172.31.57.218
 	console.log("We got Connected Let's Start");
 	//Defining Libs
-	var io = require('socket.io')();
-	console.log("coming");
+	var server = require('http').createServer();
+	var io = require('socket.io')(server);
 	io.on('connection', function(socket){
-		console.log("Connected!!");
-		var address = socket.handshake.address;
-		console.log('New connection from ' + address.address + ':' + address.port);
+	  socket.on('event', function(data){});
+	  socket.on('disconnect', function(){});
 	});
-	console.log("coming 2");
-	io.listen(1330);
+	server.listen(1330);
 	//Defining Libs
 	var mysql      = require('mysql');
 	
