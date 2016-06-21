@@ -3,10 +3,12 @@
 	var io = require('socket.io')();
 	console.log("coming");
 	io.on('connection', function(socket){
-		console.log("Connected!!")
+		console.log("Connected!!");
+		var address = socket.handshake.address;
+		console.log('New connection from ' + address.address + ':' + address.port);
 	});
 	console.log("coming 2");
-	io.listen(1338);
+	io.listen(1441);
 	//Defining Libs
 	var mysql      = require('mysql');
 	
