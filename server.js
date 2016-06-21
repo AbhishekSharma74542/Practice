@@ -7,12 +7,21 @@
 	io.on('connection', function(socket){
 	  socket.on('event', function(data){
 	  	console.log("Event Occured");
+	  	console.log("Data"+data);
+	  	
 	  });
 	  socket.on('disconnect', function(){
 	  	console.log("Disconnected");
+	  	
 	  });
 	});
 	server.listen(1330);
+	var http = require('http').Server(app);
+	http.listen(1330, function(){
+
+          console.log('listening on *:1330');
+
+        });
 	app.get('/', function(req, res){
 	
 	  //send the index.html file for all requests
