@@ -4,8 +4,14 @@
 	var server = require('http').createServer();
 	var io = require('socket.io')(server);
 	io.on('connection', function(socket){
-	  socket.on('event', function(data){});
-	  socket.on('disconnect', function(){});
+		console.log("Connected");
+	  socket.on('event', function(data){
+	  	console.log("On Event ");
+	  	console.log(data);
+	  });
+	  socket.on('disconnect', function(){
+	  	console.log("On Disconnection ");
+	  });
 	});
 	server.listen(1330);
 	//Defining Libs
