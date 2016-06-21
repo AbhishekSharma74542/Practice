@@ -1,10 +1,14 @@
 	console.log("We got Connected Let's Start");
+	//Defining Libs
+	var app = require('express')();
+	var server = require('http').createServer(app);
+	var io = require('socket.io')(server);
 	var server = require('http').createServer();
 	var io = require('socket.io')(server);
 	
 	var mysql      = require('mysql');
 	
-    //Defining Connection to MySQL
+        //Defining Connection to MySQL
 	var myconnection = mysql.createConnection({
 	host     : 'cgdev2.cf53zztlzwqg.us-east-1.rds.amazonaws.com',
 	user     : 'cgdevuser',
@@ -22,21 +26,6 @@
 		  console.log('connected as id ' + myconnection.threadId);
 	});
 
-
-	io.on('connection', function(socket){
-	console.log("Connection Established");
-	socket.on('event', function(data){
-	console.log("Connection Established and on event");	
-	console.log("Data on Event is  :: "+data);
-
-
-	connection.connect();
-
-
-	});
-	socket.on('disconnect', function(){
-	console.log("Connection Terminated");
-	console.log("Data on Event is  :: "+data);
-	});
-	});
+  	//Setting up Socket connection
+	io.on('connection', function(){ /* … */ });
 	server.listen(1339);
