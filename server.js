@@ -1,11 +1,18 @@
 	console.log("We got Connected Let's Start");
 	//Defining Libs
-	var app = require('express')();
-	var server = require('http').createServer(app);
-	var io = require('socket.io')(server);
-	var server = require('http').createServer();
-	var io = require('socket.io')(server);
+	var app = require('express').createServer();
+	var io = require('socket.io').listen(app);
 	
+	app.listen(1338);
+	
+	app.get('/', function (req, res) {
+	  res.sendfile(__dirname + '/index.html');
+	});
+	
+	io.sockets.on('connection', function (socket) {
+	    console.log("Connection Done");
+	});
+	//Defining Libs
 	var mysql      = require('mysql');
 	
         //Defining Connection to MySQL
@@ -26,8 +33,4 @@
 		  console.log('connected as id ' + myconnection.threadId);
 	});
 
-  	//Setting up Socket connection
-	io.on('connection', function(){ 
-		console.log("Congrats you have connected the Device")
-	});
-	server.listen(1338);
+  	
