@@ -1,17 +1,12 @@
 	console.log("We got Connected Let's Start");
 	//Defining Libs
-	var app = require('express').createServer();
-	var io = require('socket.io').listen(app);
-	
-	app.listen(1338);
-	
-	app.get('/', function (req, res) {
-	  res.sendfile(__dirname + '/index.html');
+	var app = require('express')();
+	var server = require('http').createServer(app);
+	var io = require('socket.io')(server);
+	io.on('connection', function(){
+		console.log("Connection Setup Done !!!")
 	});
-	
-	io.sockets.on('connection', function (socket) {
-	    console.log("Connection Done");
-	});
+	server.listen(1338);
 	//Defining Libs
 	var mysql      = require('mysql');
 	
