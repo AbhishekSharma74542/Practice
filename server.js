@@ -19,7 +19,7 @@
 		    return;
 		  }
 		 
-		  console.log('connected as id ' + connection.threadId);
+		  console.log('connected as id ' + myconnection.threadId);
 	});
 
 
