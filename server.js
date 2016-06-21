@@ -1,5 +1,6 @@
 	//127.0.0.1/8 Local Host 172.31.57.218
 	console.log("We got Connected Let's Start");
+	 var app = require('express')();
 	//Defining Libs
 	var server = require('http').createServer();
 	var io = require('socket.io')(server);
